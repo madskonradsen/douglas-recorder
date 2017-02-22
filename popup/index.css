@@ -1,0 +1,21 @@
+body {
+    margin: 20px 0;
+}
+
+.container-fluid {
+    width: 400px;
+}
+
+.assert-toggle {
+    text-align: center;
+    margin: 60px 0 20px 0;
+}
+
+.js-forget-server {
+    margin: 3px;
+    opacity: 0.5;
+    cursor: pointer;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}

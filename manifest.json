@@ -1,0 +1,27 @@
+{
+  "name": "Douglas recorder",
+  "version": "0.2",
+  "description": "Recorder for Douglas testrunner",
+  "manifest_version": 2,
+  "permissions": [
+    "*://*/",
+    "tabs",
+    "storage",
+    "webNavigation"
+  ],
+  "browser_action": {
+    "default_icon": "images/icon-black.png",
+    "default_title": "Douglas",
+    "default_popup": "popup/index.html"
+  },
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": true
+  },
+  "content_scripts": [{
+    "js": ["foreground.js"],
+    "all_frames": true,
+    "matches": ["http://*/*", "https://*/*"]
+  }],
+  "content_security_policy": "script-src 'self' https://ajax.googleapis.com; object-src 'self'"
+}

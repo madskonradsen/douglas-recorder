@@ -1,0 +1,67 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.5/css/bootstrap.css">
+<link rel="stylesheet" href="index.css">
+<body>
+  <div class="container-fluid js-panel js-panel-set-url">
+    <h1>Douglas recorder</h1>
+    <h3>Which server should I use?</h3>
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="input-group">
+          <input type="text" class="form-control js-set-url-input" placeholder="Enter server-url">
+          <span class="input-group-btn">
+            <button class="btn btn-secondary js-set-url-button" type="button">Go!</button>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid js-panel js-panel-record">
+    <h1>Douglas recorder</h1>
+    <h3><small class="text-muted">Ready to record a test?</small></h3>
+
+    <button class="btn btn-primary btn-lg btn-block  js-button-start">Start</button>
+
+    <div class="js-forget-server">Forget server</div>
+  </div>
+
+  <div class="container-fluid js-panel js-panel-recording">
+    <h1>Douglas recorder</h1>
+    <h3><small class="text-muted">Recording</small></h3>
+
+    <button class="btn btn-danger btn-lg btn-block js-button-stop">Stop</button>
+
+    <div class="assert-toggle">
+      <p class="lead">Record or assert?</p>
+      <div class="btn-group">
+        <button type="button" class="btn btn-primary js-button-record">Record</button>
+        <button type="button" class="btn btn-primary js-button-assert">Assert</button>
+      </div>
+    </div>
+
+    <button class="btn btn-secondary btn-sm btn-block js-button-reset">Reset</button>
+
+    <div class="js-forget-server">Forget server</div>
+  </div>
+
+  <div class="container-fluid js-panel js-panel-save-recording">
+    <h1>Douglas recorder</h1>
+    <h3><small class="text-muted">Save recording</small></h3>
+
+    <div class="form-group">
+      <label for="usr">Name of test:</label>
+      <input type="text" placeholder="Name of test..." class="form-control js-testname">
+    </div>
+    <div class="form-group">
+      <div class="js-section-selector"></div>
+    </div>
+    <button class="btn btn-primary btn-lg btn-block js-button-save">Save test</button>
+  
+    <button class="btn btn-secondary btn-sm btn-block js-button-reset">Reset</button>
+  </div>
+
+  
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script src="index.js"></script>
+</body>
