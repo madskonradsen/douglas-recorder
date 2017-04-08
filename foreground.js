@@ -29,11 +29,11 @@ function register(listener){
   var els = document.querySelectorAll("body");
   els.forEach(function(el){
     el.addEventListener(listener, function(event) {
-      if (listener === "click") handle("click", event.target, event.target.innerText, {
+      if (listener === "click") handle("ActionClick", event.target, event.target.innerText, {
         "location": getCenterOfElement(event.target),
         "content": event.target.innerText
       });
-      if (listener === "keyup") handle("type", event.target, event.target.value, {
+      if (listener === "keyup") handle("ActionType", event.target, event.target.value, {
         "location": getCenterOfElement(event.target)
       });
     }, true);
@@ -48,9 +48,15 @@ function handle(action, node, value, meta) {
     var message = {
       "action": action, 
       "path": path,
-      "value": value,
-      "meta": meta
+      "value": value
     };
+    if(meta.content) {
+      message["metaContent"] = meta.content;
+    }
+    if(meta.location) {
+      message["metaLocationX"] = meta.location.x;
+      message["metaLocationY"] = meta.location.y;
+    }
     // Send message to background file
     chrome.runtime.sendMessage(message);
   }
