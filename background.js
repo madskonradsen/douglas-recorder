@@ -12,18 +12,18 @@ function Recorder(){
 
 Recorder.prototype.record = function(message){
   // If recording an assertion
-  if(message.action === "click" && this.assertMode === true) {
+  if(message.action === "ActionClick" && this.assertMode === true) {
     var assertion = message
-    assertion.action = "assertContainsText"
+    assertion.action = "ActionAssertContainsText"
     this.steps.push(assertion);
     alert("Assertion recorded - asserts that the clicked element contains the text: " + assertion.value);
     return
   }
 
   // If recording type events
-  if(message.action === "type") {
+  if(message.action === "ActionType") {
     var lastStep = this.steps[this.steps.length - 1];
-    if(lastStep.action === "type" && lastStep.path === message.path) {
+    if(lastStep.action === "ActionType" && lastStep.path === message.path) {
       // Delete the last step so that we can replace it with a never one
       this.steps.pop();
     }
@@ -66,7 +66,7 @@ Recorder.prototype.start = function(){
 
     // Record the initial URL step
     this.steps.push({
-      "action": "url",
+      "action": "ActionUrl",
       "value": tabs[0].url
     })
   });
