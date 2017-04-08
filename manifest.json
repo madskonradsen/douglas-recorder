@@ -1,6 +1,6 @@
 {
   "name": "Douglas recorder",
-  "version": "0.2",
+  "version": "0.3",
   "description": "Recorder for Douglas testrunner",
   "manifest_version": 2,
   "permissions": [
