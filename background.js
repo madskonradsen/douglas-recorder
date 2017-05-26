@@ -36,17 +36,23 @@ Recorder.prototype.record = function(message){
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   if (recorder.recording === false && message.type !== "start") return;
 
-  if(message.type === "start") {
-    recorder.start();
-  } else if(message.type === "stop") {
-    recorder.stop();
-  } else if(message.type === "assertStart") {
-    recorder.toggleAssertMode(true);
-  } else if(message.type === "assertStop") {
-    recorder.toggleAssertMode(false);
-  } else {
-    recorder.record(message);
+  switch(message.type) {
+    case "start":
+      recorder.start();
+      break;
+    case "stop":
+      recorder.stop();
+      break;
+    case "assertStart":
+      recorder.toggleAssertMode(true);
+      break;
+    case "assertStop":
+      recorder.toggleAssertMode(false);
+      break;
+    default:
+      recorder.record(message);
   }
+
 });
 
 // Helper to switch between assertmode
